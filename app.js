@@ -16,7 +16,8 @@ var commentRoutes = require("./routes/comments.js")
 var campgroundsRoutes = require("./routes/campgrounds.js")
 var indexRoutes = require("./routes/index.js")
     
-mongoose.connect("mongodb://localhost/campyr");
+// mongoose.connect("mongodb://localhost/campyr");
+mongoose.connect("mongodb://richard:campyr12@ds147030.mlab.com:47030/campyr");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
