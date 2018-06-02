@@ -1,0 +1,83 @@
+body {
+  background-color: black;
+}
+
+#landing-header {
+  z-index: 1; /*brings forward in front of other items */
+  position: relative; 
+  /* if position not set to relative, defaults to static and the z-index is ignored*/
+  text-align: center; /*centers horizontally*/
+  padding-top: 40vh; /*centers the content vertically*/
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%; /*makes it fit the whole page*/
+  height: 100%;
+  top: 0; /*sets starting position to top left */
+  left: 0;
+  z-index: 0; /*makes sure behind header */
+  list-style: none; /* removes bullet points*/
+  margin: 0; /*no margin or padding*/
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in; /*fade in to 10% */
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out; /*fade out to 30%*/
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
